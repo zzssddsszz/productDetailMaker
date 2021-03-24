@@ -73,7 +73,9 @@ class MyApp(QWidget):
             f.write(html)
             f.close()
 
-        webbrowser.open_new_tab(filepath)
+        chrome_path = 'open -a /Applications/Google\ Chrome.app %s'
+        webbrowser.get(chrome_path).open_new(filepath)
+        print(filepath)
 
     def gethtml(self, text):
 
@@ -85,7 +87,7 @@ class MyApp(QWidget):
             self.stat = False
             return ""
 
-        print(text)
+        # print(text)
         return response.text
 
 
